@@ -4,49 +4,58 @@
 # perform the operation
 # print to terminal
 
+LANGUAGE = 'en'
+
+import json
+
+with open('calculator_messages.json', 'r') as file:
+    MESSAGES = json.load(file)
+
 def prompt(message):
     print(f"==> {message}")
 
 def invalid_number(number_str):
     try:
-        int(number_str)
+        float(number_str)
     except ValueError:
         return True
 
     return False
 
-prompt("Welcome to Calculator!")
+def messages(message, lang='en'):
+    return MESSAGES[lang][message]
+
+prompt(messages('welcome'))
 
 while True:
 
-    prompt("What's the first number?")
+    prompt(messages('first_number'))
     number1 = input()
     while invalid_number(number1):
-        prompt("Hmm.. that doesn't look like a valid number.")
+        prompt(messages('invalid_number'))
         number1 = input()
 
-    prompt("What's the second number?")
+    prompt(messages('second_number'))
     number2 = input()
     while invalid_number(number2):
         prompt("Hmm.. that doesn't look like a valid number.")
         number2 = input()
 
-    prompt("What operation would you like to perform?\n"
-        "1) Add 2) Subtract 3) Multiply 4) Divide")
+    prompt(messages('operation'))
     operation = input()
     while operation not in ["1", "2", "3", "4"]:
-        prompt("You must choose 1, 2, 3, or 4")
+        prompt(messages('must_choose'))
         operation = input()
 
     match operation:
         case "1":
-            output = int(number1) + int(number2)
+            output = float(number1) + float(number2)
         case "2":
-            output = int(number1) - int(number2)
+            output = float(number1) - float(number2)
         case "3":
-            output = int(number1) * int(number2)
+            output = float(number1) * float(number2)
         case "4":
-            output = int(number1) / int(number2)
+            output = float(number1) / float(number2)
 
     prompt(f"The result is: {output}")
 
@@ -56,10 +65,6 @@ while True:
         prompt("Please type y to do another calculation or "
                "n to exit Calculator.")
         another_one = input()
-    
-    if another_one == "y":
-        continue
-    elif another_one == "n":
-        break
 
-    
+    if another_one == "n":
+        break
