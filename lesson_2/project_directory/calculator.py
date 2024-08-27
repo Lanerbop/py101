@@ -1,7 +1,7 @@
 # ask user for the first number
 # ask user for the second number
 # ask user what operation to perform
-# perform the operation 
+# perform the operation
 # print to terminal
 
 def prompt(message):
@@ -12,7 +12,7 @@ def invalid_number(number_str):
         int(number_str)
     except ValueError:
         return True
-    
+
     return False
 
 prompt("Welcome to Calculator!")
