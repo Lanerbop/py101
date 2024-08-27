@@ -1,3 +1,5 @@
+import json
+
 # ask user for the first number
 # ask user for the second number
 # ask user what operation to perform
@@ -5,8 +7,6 @@
 # print to terminal
 
 LANGUAGE = 'en'
-
-import json
 
 with open('calculator_messages.json', 'r') as file:
     MESSAGES = json.load(file)
