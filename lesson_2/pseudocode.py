@@ -41,5 +41,35 @@ def concatenate_strings(lst):
 
 # print(every_other([1, 2, 3, 4, 5, 6]))
 
+# determine the index of the 3rd occurence of a character in a string
+# return index, else none
+
 # START
 
+# GET string
+# GET character
+
+# SET string = list(string) 
+# SET counter = 0
+# FOR index in list(string):
+#     IF list(string)[index] == character:
+#         counter += 1
+#     IF counter == 3:
+#         return index
+# RETURN None
+
+# take two lists of numbers and return result of merging the lists
+# elements of first list should become elements of even indexes
+# elements of second list should become elements at odd indexes
+
+# START
+
+# GET list 1
+# GET list 2
+
+# SET function merge(list1, list2):
+# SET new_list = []
+# FOR item1, item2 in zip(list1, list2)
+#     new_list.append(item1)
+#     new_list.append(item2)
+# PRINT new_list
