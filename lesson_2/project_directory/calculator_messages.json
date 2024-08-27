@@ -1,0 +1,18 @@
+{
+    "en": {
+        "welcome": "Welcome to Calculator!",
+        "invalid_number": "Hmm... that doesn't look like a valid number.",
+        "first_number": "What's the first number?",
+        "second_number": "What's the second number?",
+        "operation": "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
+        "must_choose": "You must choose 1, 2, 3, or 4"
+    },
+    "es": {
+        "welcome": "es -> Welcome to Calculator!",
+        "invalid_number": "es -> Hmm... that doesn't look like a valid number.",
+        "first_number": "es -> What's the first number?",
+        "second_number": "es -> What's the second number?",
+        "operation": "es -> What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
+        "must_choose": "es -> You must choose 1, 2, 3, or 4"
+    }
+}
