@@ -1,17 +1,20 @@
+import os
+
 def prompt(message):
     return print(f"==> {message}")
 
 def invalid_float(number_as_string):
-    if number_as_string == "nan" or number_as_string == "inf":
+    if number_as_string in ["nan", "inf", "infinity"]:
         return True
-    else:
-        try:
-            float(number_as_string)
-        except ValueError:
-            return True
+
+    try:
+        float(number_as_string)
+    except ValueError:
+        return True
 
     return False
 
+os.system('clear')
 
 prompt("Welcome to Monthly Payment Calculator")
 
@@ -67,5 +70,8 @@ while True:
         retry = input().lower()
 
     if retry == 'n':
+        os.system('clear')
         prompt("Goodbye!")
         break
+
+    os.system('clear')
