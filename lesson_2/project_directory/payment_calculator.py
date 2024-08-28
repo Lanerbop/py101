@@ -2,10 +2,13 @@ def prompt(message):
     return print(f"==> {message}")
 
 def invalid_float(number_as_string):
-    try:
-        float(number_as_string)
-    except ValueError:
+    if number_as_string == "nan" or number_as_string == "inf":
         return True
+    else:
+        try:
+            float(number_as_string)
+        except ValueError:
+            return True
 
     return False
 
