@@ -38,17 +38,17 @@ while True:
 
     if loan_duration_m == 0:
         monthly_payment = loan_outstanding
-    elif loan_duration_m != 0:
+    else:
         monthly_payment = round((loan_outstanding * (monthly_apr / (1
             - (1 + monthly_apr)**(-1 * loan_duration_m)))), 2)
-        
-    monthly_payment = "{:.2f}".format(monthly_payment)
+
+    monthly_payment = f"{monthly_payment:.2f}"
 
     prompt("Your monthly payment is: $" + str(monthly_payment))
     prompt("Would you like to use Monthly Payment Calculator again? y/n")
     retry = input().lower()
     while True:
-        if retry == 'n' or retry == 'y':
+        if retry in ["y", "n"]:
             break
 
         prompt('Please enter "y" or "n".')
