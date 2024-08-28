@@ -1,16 +1,3 @@
-# monthly payment calculator
-
-# input will be the loan amount, apr, and loan duration in months
-# output will be the monthly payment
-
-# edge cases include a loan duration of 0, decimals used on months
-# (decimals used for months is fine bc python rounds down
-# if int is used which results in accurate output)
-
-# main data structure will be floats
-
-# plug in values into monthly payment formula and return value
-
 def prompt(message):
     return print(f"==> {message}")
 
@@ -49,21 +36,23 @@ while True:
         loan_duration_m = input()
     loan_duration_m = int(float(loan_duration_m))
 
-    if loan_duration_m != 0:
+    if loan_duration_m == 0:
+        monthly_payment = loan_outstanding
+    elif loan_duration_m != 0:
         monthly_payment = round((loan_outstanding * (monthly_apr / (1
             - (1 + monthly_apr)**(-1 * loan_duration_m)))), 2)
-    else:
-        monthly_payment = loan_outstanding
+        
+    monthly_payment = "{:.2f}".format(monthly_payment)
 
     prompt("Your monthly payment is: $" + str(monthly_payment))
     prompt("Would you like to use Monthly Payment Calculator again? y/n")
     retry = input().lower()
     while True:
-        if retry.startswith('n') or retry.startswith('y'):
+        if retry == 'n' or retry == 'y':
             break
 
         prompt('Please enter "y" or "n".')
         retry = input().lower()
 
-    if retry[0] == 'n':
+    if retry == 'n':
         break
