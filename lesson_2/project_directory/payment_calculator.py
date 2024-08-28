@@ -22,6 +22,7 @@ while True:
         prompt("Please only type numbers. (Hint: Don't use '$'"
             " or ',' in your number.)")
         loan_outstanding = input()
+
     loan_outstanding = float(loan_outstanding)
 
     prompt("What is the APR of the loan in percentage format? (Ex: '15.7')")
@@ -29,21 +30,29 @@ while True:
     while invalid_float(apr):
         prompt("Please only type numbers. (Hint: Don't use the '%' sign.)")
         apr = input()
+
     apr = float(apr) / 100
     monthly_apr = apr / 12
 
     prompt("What is the outstanding loan duration in months?")
-    loan_duration_m = input()
-    while invalid_float(loan_duration_m):
+    loan_duration_month = input()
+    while invalid_float(loan_duration_month):
         prompt("Please only type numbers")
-        loan_duration_m = input()
-    loan_duration_m = int(float(loan_duration_m))
+        loan_duration_month = input()
 
-    if loan_duration_m == 0:
+    loan_duration_month = int(float(loan_duration_month))
+    # loan_duration_month rounds down to nearest integer if it
+    # is a decimal, which is desired and logical!
+
+
+    # Monthly Payment Calculation
+    if loan_duration_month == 0:
         monthly_payment = loan_outstanding
+    elif monthly_apr == 0:
+        monthly_payment = round((loan_outstanding / loan_duration_month), 2)
     else:
         monthly_payment = round((loan_outstanding * (monthly_apr / (1
-            - (1 + monthly_apr)**(-1 * loan_duration_m)))), 2)
+            - (1 + monthly_apr)**(-1 * loan_duration_month)))), 2)
 
     monthly_payment = f"{monthly_payment:.2f}"
 
@@ -58,4 +67,5 @@ while True:
         retry = input().lower()
 
     if retry == 'n':
+        prompt("Goodbye!")
         break
