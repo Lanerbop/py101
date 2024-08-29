@@ -59,10 +59,8 @@ while True:
         monthly_payment = round((loan_outstanding * (monthly_apr / (1
             - (1 + monthly_apr)**(-1 * loan_duration_months)))), 2)
 
-    # The above round function is to ensure accurate rounding for
-    # calculation purposes, while decimal format below is to
-    # always display 2 decimal places to the user.
-    monthly_payment = f"{monthly_payment:.2f}"
+    monthly_payment = f"{monthly_payment:.2f}" # display to 2 decimal places
+
 
     prompt("Your monthly payment is: $" + str(monthly_payment))
     prompt("Would you like to use Monthly Payment Calculator again? y/n")
