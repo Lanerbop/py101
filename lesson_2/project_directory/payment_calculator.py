@@ -40,27 +40,27 @@ while True:
 
 
     prompt("What is the outstanding loan duration in months?")
-    loan_duration_month = input()
-    while invalid_float(loan_duration_month):
+    loan_duration_months = input()
+    while invalid_float(loan_duration_months):
         prompt("Please only type numbers")
-        loan_duration_month = input()
+        loan_duration_months = input()
 
-    loan_duration_month = int(float(loan_duration_month))
-    # loan_duration_month rounds down to nearest integer if it
+    loan_duration_months = int(float(loan_duration_months))
+    # loan_duration_months rounds down to nearest integer if it
     # is a decimal, which is desired and logical!
 
 
     # Monthly Payment Calculation
-    if loan_duration_month == 0:
+    if loan_duration_months == 0:
         monthly_payment = loan_outstanding
     elif monthly_apr == 0:
-        monthly_payment = round((loan_outstanding / loan_duration_month), 2)
+        monthly_payment = round((loan_outstanding / loan_duration_months), 2)
     else:
         monthly_payment = round((loan_outstanding * (monthly_apr / (1
-            - (1 + monthly_apr)**(-1 * loan_duration_month)))), 2)
+            - (1 + monthly_apr)**(-1 * loan_duration_months)))), 2)
 
-    # The above round function is to ensure accurate rounding for 
-    # calculation purposes, while decimal format below is to 
+    # The above round function is to ensure accurate rounding for
+    # calculation purposes, while decimal format below is to
     # always display 2 decimal places to the user.
     monthly_payment = f"{monthly_payment:.2f}"
 
