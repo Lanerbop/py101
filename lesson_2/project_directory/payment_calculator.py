@@ -28,6 +28,7 @@ while True:
 
     loan_outstanding = float(loan_outstanding)
 
+
     prompt("What is the APR of the loan in percentage format? (Ex: '15.7')")
     apr = input()
     while invalid_float(apr):
@@ -36,6 +37,7 @@ while True:
 
     apr = float(apr) / 100
     monthly_apr = apr / 12
+
 
     prompt("What is the outstanding loan duration in months?")
     loan_duration_month = input()
@@ -57,6 +59,9 @@ while True:
         monthly_payment = round((loan_outstanding * (monthly_apr / (1
             - (1 + monthly_apr)**(-1 * loan_duration_month)))), 2)
 
+    # The above round function is to ensure accurate rounding for 
+    # calculation purposes, while decimal format below is to 
+    # always display 2 decimal places to the user.
     monthly_payment = f"{monthly_payment:.2f}"
 
     prompt("Your monthly payment is: $" + str(monthly_payment))
