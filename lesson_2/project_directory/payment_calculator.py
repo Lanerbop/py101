@@ -19,7 +19,7 @@ os.system('clear')
 prompt("Welcome to Monthly Payment Calculator")
 
 while True:
-    prompt("What is the outstanding loan amount in dollars?")
+    prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
     loan_outstanding = input()
     while invalid_float(loan_outstanding):
         prompt("Please only type numbers. (Hint: Don't use '$'"
