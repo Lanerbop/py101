@@ -11,6 +11,9 @@ def invalid_float(number_as_string):
         float(number_as_string)
     except ValueError:
         return True
+    
+    if float(number_as_string) < 0:
+        return True
 
     return False
 
@@ -22,7 +25,7 @@ while True:
     prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
     loan_outstanding = input()
     while invalid_float(loan_outstanding):
-        prompt("Please only type numbers. (Hint: Don't use '$'"
+        prompt("Please only type positive numbers. (Hint: Don't use '$'"
             " or ',' in your number.)")
         loan_outstanding = input()
 
@@ -32,7 +35,8 @@ while True:
     prompt("What is the APR of the loan in percentage format? (Ex: '15.7')")
     apr = input()
     while invalid_float(apr):
-        prompt("Please only type numbers. (Hint: Don't use the '%' sign.)")
+        prompt("Please only type positive numbers. (Hint: Don't use"
+               " the '%' sign.)")
         apr = input()
 
     apr = float(apr) / 100
