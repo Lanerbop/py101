@@ -34,15 +34,14 @@ while True:
     computer_choice = random.choice(VALID_CHOICES)
 
     display_winner(choice, computer_choice)
-    
+
     while True:
         prompt(MESSAGES["play_again_question"])
         answer = input().lower()
 
         if answer.startswith('n') or answer.startswith('y'):
             break
-        else:
-            prompt("That's not a valid choice")
+        prompt("That's not a valid choice")
 
     if answer[0] == 'n':
         break
