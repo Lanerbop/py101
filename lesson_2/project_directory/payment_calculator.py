@@ -1,5 +1,8 @@
 import os
 
+def clear():
+    os.system('clear')
+
 def prompt(message):
     return print(f"==> {message}")
 
@@ -17,6 +20,17 @@ def invalid_float(number_as_string):
 
     return False
 
+def get_loan_outstanding():
+    prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
+    loan_outstanding = input()
+
+    while invalid_float(loan_outstanding):
+        prompt("Please only type positive numbers. (Hint: Don't use '$'"
+            " or ',' in your number.)")
+        loan_outstanding = input()
+    
+    return loan_outstanding
+
 def display_welcome_message():
     prompt("Welcome to Monthly Payment Calculator")
 
@@ -27,17 +41,12 @@ def display_try_again_question():
     prompt("Would you like to use Monthly Payment Calculator again? y/n")
 
 
-os.system('clear')
+clear()
 
 display_welcome_message()
 
 while True:
-    prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
-    loan_outstanding = input()
-    while invalid_float(loan_outstanding):
-        prompt("Please only type positive numbers. (Hint: Don't use '$'"
-            " or ',' in your number.)")
-        loan_outstanding = input()
+    loan_outstanding = get_loan_outstanding()
 
     loan_outstanding = float(loan_outstanding)
 
@@ -88,8 +97,8 @@ while True:
         retry = input().lower()
 
     if retry == 'n':
-        os.system('clear')
+        clear()
         prompt("Goodbye!")
         break
 
-    os.system('clear')
+    clear()
