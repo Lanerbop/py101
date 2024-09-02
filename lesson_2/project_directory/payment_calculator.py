@@ -1,4 +1,8 @@
 import os
+import json
+
+with open('payment_calculator_messages.json', 'r') as file:
+    MESSAGES = json.load(file)
 
 def calculator():
 
@@ -28,45 +32,42 @@ def calculator():
             if retry in ["y", "n"]:
                 break
 
-            prompt('Please enter "y" or "n".')
+            prompt(MESSAGES["retry_calculator_invalid"])
             retry = input().lower()
 
     def get_loan_outstanding():
-        prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
+        prompt(MESSAGES["outstanding_loan"])
         loan_outstanding = input()
 
         while invalid_float(loan_outstanding):
-            prompt("Please only type positive numbers. (Hint: Don't use '$'"
-                " or ',' in your number.)")
+            prompt(MESSAGES["outstanding_loan_invalid"])
             loan_outstanding = input()
 
         return loan_outstanding
 
     def get_apr():
-        prompt("What is the APR of the loan in percentage format?"
-               " (Ex: '15.7')")
+        prompt(MESSAGES["apr"])
         apr = input()
         while invalid_float(apr):
-            prompt("Please only type positive numbers. (Hint: Don't use"
-                " the '%' sign.)")
+            prompt(MESSAGES["apr_invalid"])
             apr = input()
 
         return apr
 
     def display_welcome_message():
-        prompt("Welcome to Monthly Payment Calculator")
+        prompt(MESSAGES["welcome_message"])
 
     def display_result():
-        prompt("Your monthly payment is: $" + monthly_payment)
+        prompt(MESSAGES["display_result"] + monthly_payment)
 
     def display_try_again_question():
-        prompt("Would you like to use Monthly Payment Calculator again? y/n")
+        prompt(MESSAGES["retry_calculator_question"])
 
     def get_loan_duration():
-        prompt("What is the outstanding loan duration in months?")
+        prompt(MESSAGES["loan_duration"])
         loan_duration_months = input()
         while invalid_float(loan_duration_months):
-            prompt("Please only type numbers")
+            prompt(MESSAGES["loan_duration_invalid"])
             loan_duration_months = input()
 
         return loan_duration_months
@@ -111,9 +112,10 @@ def calculator():
         retry = input().lower()
 
         input_validation_for_retry()
+        
         if retry == 'n':
             clear()
-            prompt("Goodbye!")
+            prompt(MESSAGES["goodbye_message"])
             break
 
         clear()

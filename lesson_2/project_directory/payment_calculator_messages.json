@@ -1,0 +1,13 @@
+{
+    "outstanding_loan": "What is the outstanding loan amount in dollars? (Ex: '13500')",
+    "outstanding_loan_invalid": "Please only type positive numbers. (Hint: Don't use '$' or ',' in your number.)",
+    "apr": "What is the APR of the loan in percentage format? (Ex: '15.7')",
+    "apr_invalid": "Please only type positive numbers. (Hint: Don't use the '%' sign.)",
+    "welcome_message": "Welcome to Monthly Payment Calculator",
+    "display_result": "Your monthly payment is: $",
+    "loan_duration": "What is the outstanding loan duration in months?",
+    "loan_duration_invalid": "Please only type numbers",
+    "retry_calculator_question": "Would you like to use Monthly Payment Calculator again? y/n",
+    "retry_calculator_invalid": "Please enter \"y\" or \"n\".",
+    "goodbye_message": "Goodbye!"
+}
