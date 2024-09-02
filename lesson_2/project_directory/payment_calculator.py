@@ -11,15 +11,25 @@ def invalid_float(number_as_string):
         float(number_as_string)
     except ValueError:
         return True
-    
+
     if float(number_as_string) < 0:
         return True
 
     return False
 
+def display_welcome_message():
+    prompt("Welcome to Monthly Payment Calculator")
+
+def display_result():
+    prompt("Your monthly payment is: $" + str(monthly_payment))
+
+def display_try_again_question():
+    prompt("Would you like to use Monthly Payment Calculator again? y/n")
+
+
 os.system('clear')
 
-prompt("Welcome to Monthly Payment Calculator")
+display_welcome_message()
 
 while True:
     prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
@@ -66,8 +76,9 @@ while True:
     monthly_payment = f"{monthly_payment:.2f}" # display to 2 decimal places
 
 
-    prompt("Your monthly payment is: $" + str(monthly_payment))
-    prompt("Would you like to use Monthly Payment Calculator again? y/n")
+    display_result()
+
+    display_try_again_question()
     retry = input().lower()
     while True:
         if retry in ["y", "n"]:
