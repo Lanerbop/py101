@@ -31,6 +31,16 @@ def get_loan_outstanding():
     
     return loan_outstanding
 
+def get_apr():
+    prompt("What is the APR of the loan in percentage format? (Ex: '15.7')")
+    apr = input()
+    while invalid_float(apr):
+        prompt("Please only type positive numbers. (Hint: Don't use"
+               " the '%' sign.)")
+        apr = input()
+    
+    return apr
+
 def display_welcome_message():
     prompt("Welcome to Monthly Payment Calculator")
 
@@ -47,17 +57,9 @@ display_welcome_message()
 
 while True:
     loan_outstanding = get_loan_outstanding()
-
     loan_outstanding = float(loan_outstanding)
 
-
-    prompt("What is the APR of the loan in percentage format? (Ex: '15.7')")
-    apr = input()
-    while invalid_float(apr):
-        prompt("Please only type positive numbers. (Hint: Don't use"
-               " the '%' sign.)")
-        apr = input()
-
+    apr = get_apr()
     apr = float(apr) / 100
     monthly_apr = apr / 12
 
