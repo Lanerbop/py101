@@ -21,7 +21,7 @@ def calculator():
             return True
 
         return False
-    
+
     def input_validation_for_retry():
         nonlocal retry
         while True:
@@ -105,7 +105,7 @@ def calculator():
 
 
         display_result()
-        
+
 
         display_try_again_question()
         retry = input().lower()
