@@ -21,6 +21,15 @@ def calculator():
             return True
 
         return False
+    
+    def input_validation_for_retry():
+        nonlocal retry
+        while True:
+            if retry in ["y", "n"]:
+                break
+
+            prompt('Please enter "y" or "n".')
+            retry = input().lower()
 
     def get_loan_outstanding():
         prompt("What is the outstanding loan amount in dollars? (Ex: '13500')")
@@ -67,7 +76,7 @@ def calculator():
 
     display_welcome_message()
 
-
+    # MAIN LOOP
     while True:
         loan_outstanding = get_loan_outstanding()
         loan_outstanding = float(loan_outstanding)
@@ -96,16 +105,12 @@ def calculator():
 
 
         display_result()
+        
 
         display_try_again_question()
         retry = input().lower()
-        while True:
-            if retry in ["y", "n"]:
-                break
 
-            prompt('Please enter "y" or "n".')
-            retry = input().lower()
-
+        input_validation_for_retry()
         if retry == 'n':
             clear()
             prompt("Goodbye!")
