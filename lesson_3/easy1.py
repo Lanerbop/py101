@@ -59,8 +59,6 @@
 
 # QUESTION 10 -> too verbose
 
-advice = "Few things in life are as important as house training your pet dinosaur."
+# advice = "Few things in life are as important as house training your pet dinosaur."
 
 # advice = advice.replace('important', 'urgent')
-
-print(advice.replace('important', 'urgent'))
